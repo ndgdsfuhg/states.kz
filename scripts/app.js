@@ -1,92 +1,95 @@
-$(document).ready(function() {
-  // Initialize with Russian by default
-  let currentLang = 'ru';
-  let currentCountry = 'KZ';
+// Set active language
+function setActiveLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+}
+
+// Set country content
+function setCountry(countryCode) {
+  const country = countryContent[countryCode] || countryContent['US'];
   
-  // Set active language
-  function setActiveLanguage(lang) {
-    currentLang = lang;
-    $('.lang-btn').removeClass('active');
-    $(`.lang-btn[data-lang="${lang}"]`).addClass('active');
-    $('#mobile-lang-select').val(lang);
-    
-    // Map language to country
-    const langToCountry = {
-      'ru': 'KZ',
-      'kk': 'KZ',
-      'en': 'US',
-      'zh': 'CN',
-      'ar': 'AR',
-      'tr': 'TR'
-    };
-    currentCountry = langToCountry[lang] || 'US';
-  }
-
-  // Update country content
-  function updateCountryContent() {
-    const country = countryContent[currentCountry] || countryContent['US'];
-    
-    $('#testimonial1-text').text(country.testimonials[0]);
-    $('#testimonial2-text').text(country.testimonials[1]);
-    $('#testimonial1-author').text(country.authors[0]);
-    $('#testimonial2-author').text(country.authors[1]);
-    
-    $('#block1-list li').each(function(index) {
-      $(this).html('<strong>' + country.advantages[index] + '</strong>');
-    });
-  }
-
-  // Update translations
-  function updateTranslations() {
-    const t = translations[currentLang] || translations['ru'];
-    
-    document.title = t.title;
-    $('meta[name="description"]').attr('content', t.description);
-    
-    $('#main-heading').text(t.heading);
-    $('#main-tagline').text(t.tagline);
-    
-    $('#block1-heading').text(t.block1.heading);
-    $('#btn-telegram').text(t.block1.btn1);
-    $('#btn-whatsapp').text(t.block1.btn2);
-    
-    $('#block2-heading').text(t.block2.heading);
-    $('#btn-partner').text(t.block2.btn);
-    
-    $('#block3-heading').text(t.block3.heading);
-    $('#btn-contact').text(t.block3.btn);
-    
-    $('#footer').text(t.footer);
-    
-    $('body').attr('dir', t.rtl ? 'rtl' : 'ltr');
-    document.documentElement.lang = currentLang;
-  }
-
-  // Language switcher for desktop
-  $('.lang-btn').click(function() {
-    const lang = $(this).data('lang');
-    setActiveLanguage(lang);
-    updateCountryContent();
-    updateTranslations();
-    localStorage.setItem('preferredLang', lang);
-  });
-
-  // Language switcher for mobile
-  $('#mobile-lang-select').change(function() {
-    const lang = $(this).val();
-    setActiveLanguage(lang);
-    updateCountryContent();
-    updateTranslations();
-    localStorage.setItem('preferredLang', lang);
-  });
-
-  // Load preferred language
-  const savedLang = localStorage.getItem('preferredLang');
-  if (savedLang) {
-    setActiveLanguage(savedLang);
+  // Update advantages
+  const advantagesList = document.getElementById('block1-list');
+  if (advantagesList) {
+    advantagesList.innerHTML = country.advantages.map(item => 
+      `<li><strong>${item}</strong></li>`
+    ).join('');
   }
   
-  // Initial update
-  updateCountryContent();
-  updateTranslations();
-});
+  // Update partnership
+  const partnershipList = document.getElementById('block2-list');
+  if (partnershipList) {
+    partnershipList.innerHTML = country.partnership.map(item => 
+      `<li><strong>${item}</strong></li>`
+    ).join('');
+  }
+  
+  // Update country solution
+  const countrySolution = document.getElementById('country-solution');
+  if (countrySolution) {
+    countrySolution.innerHTML = `
+      <div class="country-solution">
+        <h3>${country.solution.title}</h3>
+        <p>${country.solution.description}</p>
+        <ul>
+          ${country.solutionItems.map(item => `<li>${item}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+  }
+  
+  // Update testimonials
+  const businessTestimonials = document.getElementById('business-testimonials');
+  if (businessTestimonials) {
+    businessTestimonials.innerHTML = country.businessTestimonials.map(testimonial => `
+      <div class="testimonial">
+        <p>${testimonial.text}</p>
+        <div class="testimonial-author">${testimonial.author}</div>
+      </div>
+    `).join('');
+  }
+}
+
+// Set language
+function setLanguage(lang) {
+  const t = translations[lang] || translations['en'];
+  
+  // Update metadata
+  document.title = t.title;
+  document.querySelector('meta[name="description"]').setAttribute('content', t.description);
+  
+  // Update content
+  const mainHeading = document.getElementById('main-heading');
+  if (mainHeading) mainHeading.textContent = t.heading;
+  
+  const mainTagline = document.getElementById('main-tagline');
+  if (mainTagline) mainTagline.textContent = t.tagline;
+  
+  const block1Heading = document.getElementById('block1-heading');
+  if (block1Heading) block1Heading.textContent = t.block1.heading;
+  
+  const btnTelegram = document.getElementById('btn-telegram');
+  if (btnTelegram) btnTelegram.innerHTML = `<i class="fab fa-telegram"></i> ${t.block1.btn1}`;
+  
+  const btnWhatsapp = document.getElementById('btn-whatsapp');
+  if (btnWhatsapp) btnWhatsapp.innerHTML = `<i class="fab fa-whatsapp"></i> ${t.block1.btn2}`;
+  
+  const block2Heading = document.getElementById('block2-heading');
+  if (block2Heading) block2Heading.textContent = t.block2.heading;
+  
+  const btnPartner = document.getElementById('btn-partner');
+  if (btnPartner) btnPartner.innerHTML = `<i class="fas fa-handshake"></i> ${t.block2.btn}`;
+  
+  const block3Heading = document.getElementById('block3-heading');
+  if (block3Heading) block3Heading.textContent = t.block3.heading;
+  
+  const btnContact = document.getElementById('btn-contact');
+  if (btnContact) btnContact.innerHTML = `<i class="fas fa-envelope"></i> ${t.block3.btn}`;
+  
+  const footer = document.getElementById('footer');
+  if (footer) footer.textContent = t.footer;
+  
+  // Set RTL if needed
+  document.body.setAttribute('
