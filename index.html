@@ -758,3 +758,42 @@
       if (btnContact) btnContact.innerHTML = `<i class="fas fa-envelope"></i> ${t.block3.btn}`;
       
       const footer = document
+  <script>
+    // ... (весь предыдущий код остается без изменений до функции setLanguage)
+
+    // Initialize language switcher
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set default language from browser or localStorage
+      const defaultLang = localStorage.getItem('preferredLang') || 
+                         (navigator.language.startsWith('kk') ? 'kk' : 
+                          navigator.language.startsWith('ru') ? 'ru' : 'en');
+      
+      // Initialize with default language
+      setLanguage(defaultLang);
+      setActiveLanguage(defaultLang);
+      
+      // Set country based on language
+      const countryMap = {
+        'kk': 'KZ',
+        'ru': 'KZ',
+        'en': 'US',
+        'zh': 'CN',
+        'ar': 'AE',
+        'tr': 'TR'
+      };
+      setCountry(countryMap[defaultLang] || 'US');
+
+      // Add click event listeners to language buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          setLanguage(lang);
+          setActiveLanguage(lang);
+          setCountry(countryMap[lang] || 'US');
+          localStorage.setItem('preferredLang', lang);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
