@@ -153,12 +153,16 @@
       font-weight: 600;
       color: #F5D78E;
     }
-    .country-flag {
-      width: 20px;
-      height: 15px;
-      margin-right: 8px;
-      vertical-align: middle;
-      border-radius: 2px;
+    .country-solution {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 8px;
+      border-left: 3px solid #F5D78E;
+    }
+    .country-solution h3 {
+      color: #F5D78E;
+      margin-bottom: 0.5rem;
     }
     footer {
       text-align: center;
@@ -283,6 +287,7 @@
         <li><strong>Полная поддержка</strong> - мы сами ведем переговоры и закрываем сделки</li>
         <li><strong>Готовые материалы</strong> - презентации, скрипты, ответы на возражения</li>
       </ul>
+      <div id="country-solution"></div>
       <div class="buttons">
         <a class="btn" href="https://t.me/+JgoYeT6PCDU0ZmRi" id="btn-partner"><i class="fas fa-handshake"></i> Партнерство</a>
       </div>
@@ -312,20 +317,29 @@
     // Country-specific content
     const countryContent = {
       'KZ': {
-        testimonials: [
-          `АҚШ-тағы саудамызды 3 айда ${218 + getRandomGrowth()}% арттырдық. Операторлардың ақцені тамаша!`,
-          "Серіктес ретінде айына 8,200,000 ₸ таптым. Барлығы анық және уақытында."
-        ],
-        authors: [
-          "- Әлия, тамақ экспортеры",
-          "- Арман, онлайн-бизнес"
-        ],
         advantages: [
           "20,000,000 ₸ толық сату қызметі",
           "Африкалық операторлар (160% тиімді!)",
           "Автоматтандырылған CRM жүйесі",
           "Ашық есеп - әр сауданы көру",
           "Персоналдан ROI есептеріне дейін"
+        ],
+        partnership: [
+          "Әр клиент үшін $2000 - уақытында төлемдер",
+          "Жоғары конверсия - 6% жетістік деңгейімен дәлелденген әдіс",
+          "+$500 бонус алғашқы 3 серіктеске",
+          "Толық қолдау - келіссөздерді біз жүргіземіз",
+          "Дайын материалдар - презентациялар, сценарийлер, жауаптар"
+        ],
+        solution: {
+          title: "Қазақстандық өнімдерді АҚШ нарығына енгізу",
+          description: "Біз Қазақстандық өнімдерді АҚШ-та тарату желісін құруға маманданғанмыз. Арнайы стратегиялар:"
+        },
+        solutionItems: [
+          "АҚШ-тың ірі дистрибьюторларымен тікелей байланыстар",
+          "Ағылшын тіліндегі маркетинг материалдарын дайындау",
+          "Тауардың FDA/CE сертификаттауына көмек",
+          "Логистикалық шешімдерді ұйымдастыру"
         ],
         businessTestimonials: [
           {
@@ -336,33 +350,32 @@
             text: "Біздің өнімдерді АҚШ-та сату қиын болды, бірақ бұл команда нарыққа кіруге көмектесті. 6 айда 320 мың доллар табыс!",
             author: "- Айгүл, косметика өндірушісі"
           }
-        ],
-        partnerTestimonials: [
-          {
-            text: "Серіктес ретінде алғашқы айда 12,000$ таптым. Команда шынайы кәсіпқойлар!",
-            author: "- Дәулет, Алматыдағы бизнес-консультант"
-          },
-          {
-            text: "Бұл серіктестік бағдарламасы - менің бизнесімдегі ең жақсы инвестиция. 3 айда 28,000$ табыс!",
-            author: "- Асхат, Нұр-Сұлтан"
-          }
         ]
       },
       'RU': {
-        testimonials: [
-          `За 3 месяца увеличили наши продажи в США на ${217 + getRandomGrowth()}%. Операторы действительно с нейтральным акцентом.`,
-          "Как партнер заработал $8000 за месяц. Все честно - выплатили ровно то, что обещали."
-        ],
-        authors: [
-          "- Директор по экспорту, пищевая компания",
-          "- Маркетолог, Алматы"
-        ],
         advantages: [
           "Готовые продажи за $40,000",
           "Профессиональные операторы (экономия 60%)",
           "Автоматизированная CRM система",
           "Прозрачность - видите каждую сделку",
           "От подбора персонала до отчетов по ROI"
+        ],
+        partnership: [
+          "$2000 за каждого привлеченного клиента - выплаты вовремя",
+          "Высокая конверсия - проверенная методика с 6% успеха",
+          "+$500 бонус первым 3 партнерам",
+          "Полная поддержка - ведем переговоры за вас",
+          "Готовые материалы - презентации, скрипты, ответы"
+        ],
+        solution: {
+          title: "Продвижение российских товаров в США",
+          description: "Специализированные решения для российских производителей:"
+        },
+        solutionItems: [
+          "Сеть из 50+ проверенных дистрибьюторов по штатам",
+          "Адаптация продукта под требования FDA/USDA",
+          "Помощь в сертификации и таможенном оформлении",
+          "Интеграция с Amazon FBA и Walmart Marketplace"
         ],
         businessTestimonials: [
           {
@@ -373,33 +386,32 @@
             text: "Благодаря этому колл-центру мы нашли 12 новых дистрибьюторов в США. Оборот $540,000 за квартал!",
             author: "- Елена, текстильная компания"
           }
-        ],
-        partnerTestimonials: [
-          {
-            text: "За 2 месяца партнерства заработал $15,600. Все прозрачно - видишь каждую сделку в CRM.",
-            author: "- Андрей, бизнес-ангел из Москвы"
-          },
-          {
-            text: "Лучшая партнерская программа в СНГ. Вложил $3000, получил $24,500 за 4 месяца.",
-            author: "- Виктор, инвестор"
-          }
         ]
       },
       'US': {
-        testimonials: [
-          `Our US sales grew by ${215 + getRandomGrowth()}% in 3 months. Perfect English accent!`,
-          "As a partner earned $12,500 in first month. Reliable service."
-        ],
-        authors: [
-          "- Michael, Tech Exporter",
-          "- Sarah, E-commerce"
-        ],
         advantages: [
           "$40,000 complete sales service",
           "African operators (160% cost efficient!)",
           "Automated CRM system",
           "Full transparency - see every deal",
           "From staffing to ROI reports"
+        ],
+        partnership: [
+          "$2000 per attracted client - timely payments",
+          "High conversion - proven method with 6% success rate",
+          "+$500 bonus for first 3 partners",
+          "Full support - we handle negotiations",
+          "Ready materials - presentations, scripts, answers"
+        ],
+        solution: {
+          title: "US Market Entry Solutions",
+          description: "Tailored strategies for international businesses:"
+        },
+        solutionItems: [
+          "Nationwide distributor network coverage",
+          "FDA/CE certification assistance",
+          "Localized marketing and branding",
+          "Supply chain optimization"
         ],
         businessTestimonials: [
           {
@@ -410,33 +422,32 @@
             text: "As a small manufacturer, we couldn't afford US sales team. This service brought us $320K in 6 months!",
             author: "- Jennifer, Home Decor Business"
           }
-        ],
-        partnerTestimonials: [
-          {
-            text: "Earned $18,200 in first 45 days as partner. The most transparent program I've seen!",
-            author: "- Robert, Business Consultant"
-          },
-          {
-            text: "My best investment this year - $9,500 turned into $82,000 in 5 months with this partnership.",
-            author: "- James, Serial Entrepreneur"
-          }
         ]
       },
       'CN': {
-        testimonials: [
-          `我们的美国销售额在3个月内增长了${210 + getRandomGrowth()}%。完美的英语口音！`,
-          "作为合作伙伴第一个月赚了56,000元。非常可靠。"
-        ],
-        authors: [
-          "- 张经理, 食品出口",
-          "- 李女士, 电子商务"
-        ],
         advantages: [
           "¥280,000 完整销售服务",
           "非洲运营商 (节省160%成本!)",
           "自动化CRM系统",
           "完全透明 - 查看每笔交易",
           "从人员配置到投资回报报告"
+        ],
+        partnership: [
+          "每吸引一位客户2000美元 - 准时付款",
+          "高转化率 - 经过验证的方法，成功率6%",
+          "前3位合作伙伴+500美元奖金",
+          "全面支持 - 我们处理谈判",
+          "现成材料 - 演示文稿、脚本、回答"
+        ],
+        solution: {
+          title: "中国产品进入美国市场解决方案",
+          description: "我们为中国制造商量身定制进入美国市场的策略:"
+        },
+        solutionItems: [
+          "与美国主要批发商建立直接联系",
+          "产品本地化和标签服务",
+          "FDA认证和海关文件协助",
+          "亚马逊和沃尔玛平台整合"
         ],
         businessTestimonials: [
           {
@@ -447,33 +458,32 @@
             text: "通过这个服务，我们成功进入了美国5个州的超市渠道。第一年销售额达到$1,200,000!",
             author: "- 刘经理, 食品出口公司"
           }
-        ],
-        partnerTestimonials: [
-          {
-            text: "作为合作伙伴，第一个月就赚了42万元。这个项目改变了我的职业生涯!",
-            author: "- 陈先生, 商业顾问"
-          },
-          {
-            text: "投资9万元，6个月内回报达到78万元。这是我做过的最好的投资!",
-            author: "- 林女士, 天使投资人"
-          }
         ]
       },
       'AE': {
-        testimonials: [
-          `زادت مبيعاتنا في أمريكا بنسبة ${220 + getRandomGrowth()}٪ في 3 أشهر. لهجة مثالية!`,
-          "كشريك، ربحت 45,000 درهم في الشهر الأول. موثوق جدًا."
-        ],
-        authors: [
-          "- أحمد, تصدير المواد الغذائية",
-          "- نورا, التجارة الإلكترونية"
-        ],
         advantages: [
           "150,000 درهم خدمة مبيعات كاملة",
           "عمال أفارقة (توفير 160%!)",
           "نظام CRM آلي",
           "شفافية كاملة - رؤية كل صفقة",
           "من التوظيف إلى تقارير العائد"
+        ],
+        partnership: [
+          "2000 دولار لكل عميل - دفعات في الوقت المحدد",
+          "معدل تحويل عالي - طريقة مثبتة بنجاح 6٪",
+          "مكافأة +500 دولار لأول 3 شركاء",
+          "دعم كامل - نتعامل مع المفاوضات",
+          "مواد جاهزة - عروض تقديمية، نصوص، إجابات"
+        ],
+        solution: {
+          title: "حلول دخول السوق الأمريكي للإمارات",
+          description: "استراتيجيات مخصصة للشركات الإماراتية:"
+        },
+        solutionItems: [
+          "شبكة موزعين معتمدة في جميع أنحاء الولايات المتحدة",
+          "مساعدة في شهادات FDA ومواصفات المنتج",
+          "توطين العلامة التجارية والتسويق",
+          "حلول لوجستية متكاملة"
         ],
         businessTestimonials: [
           {
@@ -484,33 +494,32 @@
             text: "فتحنا 3 ولايات أمريكية جديدة بفضل هذا المركز. إيرادات الربع الأول 750,000 دولار!",
             author: "- ليلى, شركة مستحضرات تجميل"
           }
-        ],
-        partnerTestimonials: [
-          {
-            text: "كشريك، حققت 67,000 درهم في الشهرين الأولين. نظام عمولات شفاف وسريع!",
-            author: "- عمر, مستشار أعمال"
-          },
-          {
-            text: "أفضل استثمار في 2023 - 25,000 درهم أصبحت 210,000 درهم في 6 أشهر.",
-            author: "- زينب, رائدة أعمال"
-          }
         ]
       },
       'TR': {
-        testimonials: [
-          `ABD satışlarımızı 3 ayda ${225 + getRandomGrowth()}% artırdık. Mükemmel aksan!`,
-          "Ortak olarak ilk ay 350,000₺ kazandım. Çok güvenilir."
-        ],
-        authors: [
-          "- Emre, Gıda İhracatçısı",
-          "- Ayşe, E-ticaret"
-        ],
         advantages: [
           "1,200,000₺ tam satış hizmeti",
           "Afrikalı operatörler (%160 tasarruf!)",
           "Otomatik CRM sistemi",
           "Tam şeffaflık - her işlemi görün",
           "Personelden ROI raporlarına"
+        ],
+        partnership: [
+          "Her müşteri için $2000 - zamanında ödemeler",
+          "Yüksek dönüşüm - %6 başarı oranıyla kanıtlanmış metod",
+          "İlk 3 ortak için +$500 bonus",
+          "Tam destek - görüşmeleri biz yapıyoruz",
+          "Hazır materyaller - sunumlar, senaryolar, cevaplar"
+        ],
+        solution: {
+          title: "Türk Ürünleri için ABD Pazarı Çözümleri",
+          description: "Türk üreticilerine özel stratejiler:"
+        },
+        solutionItems: [
+          "ABD genelinde distribütör ağı",
+          "Ürün etiketleme ve FDA uyumluluğu desteği",
+          "Amazon ve eBay pazaryeri entegrasyonu",
+          "Lojistik ve depolama çözümleri"
         ],
         businessTestimonials: [
           {
@@ -520,16 +529,6 @@
           {
             text: "Küçük bir üretici olarak ABD pazarına girmek zordu. Bu servis sayesinde 6 ayda 2.3 milyon ₺ ciro!",
             author: "- Zeynep, Kozmetik Üreticisi"
-          }
-        ],
-        partnerTestimonials: [
-          {
-            text: "Ortak olarak ilk 2 ayda 420,000₺ kazandım. Sistem son derece şeffaf ve güvenilir!",
-            author: "- Can, İş Geliştirme Uzmanı"
-          },
-          {
-            text: "2023'ün en iyi yatırımı - 75,000₺'lik yatırım 8 ayda 650,000₺'ye dönüştü.",
-            author: "- Burak, Yatırımcı"
           }
         ]
       }
@@ -556,8 +555,7 @@
           btn: "Жұмысты бастау"
         },
         footer: "© 2025 states.kz | Қазақстандық бизнес үшін халықаралық шешімдер",
-        rtl: false,
-        testimonialsTitle: "Бизнес және серіктес пікірлері"
+        rtl: false
       },
       'ru': {
         title: "Колл-центр | Экспорт в США",
@@ -578,8 +576,7 @@
           btn: "Начать работу"
         },
         footer: "© 2025 states.kz | Международные решения для казахстанского бизнеса",
-        rtl: false,
-        testimonialsTitle: "Отзывы бизнеса и партнеров"
+        rtl: false
       },
       'en': {
         title: "Call Center | US Market Export",
@@ -600,8 +597,7 @@
           btn: "Start Working"
         },
         footer: "© 2025 states.kz | International solutions for Kazakhstani business",
-        rtl: false,
-        testimonialsTitle: "Business and Partner Testimonials"
+        rtl: false
       },
       'zh': {
         title: "呼叫中心 | 美国市场出口",
@@ -622,8 +618,7 @@
           btn: "开始合作"
         },
         footer: "© 2025 states.kz | 哈萨克斯坦企业的国际解决方案",
-        rtl: false,
-        testimonialsTitle: "企业和合作伙伴评价"
+        rtl: false
       },
       'ar': {
         title: "مركز الاتصال | تصدير للسوق الأمريكي",
@@ -644,8 +639,7 @@
           btn: "ابدأ العمل"
         },
         footer: "© 2025 states.kz | حلول دولية للشركات الكازاخستانية",
-        rtl: true,
-        testimonialsTitle: "آراء العملاء والشركاء"
+        rtl: true
       },
       'tr': {
         title: "Çağrı Merkezi | ABD Pazarına İhracat",
@@ -666,8 +660,7 @@
           btn: "Çalışmaya Başla"
         },
         footer: "© 2025 states.kz | Kazakistan işletmeleri için uluslararası çözümler",
-        rtl: false,
-        testimonialsTitle: "İşletme ve Ortak Yorumları"
+        rtl: false
       }
     };
 
@@ -685,6 +678,27 @@
     function setCountry(countryCode) {
       const country = countryContent[countryCode] || countryContent['US'];
       
+      // Update advantages
+      $('#block1-list li').each(function(index) {
+        $(this).html('<strong>' + country.advantages[index] + '</strong>');
+      });
+      
+      // Update partnership
+      $('#block2-list li').each(function(index) {
+        $(this).html('<strong>' + country.partnership[index] + '</strong>');
+      });
+      
+      // Update country solution
+      $('#country-solution').html(`
+        <div class="country-solution">
+          <h3>${country.solution.title}</h3>
+          <p>${country.solution.description}</p>
+          <ul>
+            ${country.solutionItems.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+        </div>
+      `);
+      
       // Update testimonials
       $('#business-testimonials').html(`
         ${country.businessTestimonials.map(testimonial => `
@@ -694,11 +708,6 @@
           </div>
         `).join('')}
       `);
-      
-      // Update advantages
-      $('#block1-list li').each(function(index) {
-        $(this).html('<strong>' + country.advantages[index] + '</strong>');
-      });
     }
 
     // Set language
@@ -752,7 +761,7 @@
 
     // Initialize
     const preferredLang = localStorage.getItem('preferredLang') || 'ru';
-    document.querySelector(`.lang-btn[data-lang="${preferredLang}"]`).click();
+    $('.lang-btn[data-lang="' + preferredLang + '"]').click();
   </script>
 </body>
 </html>
