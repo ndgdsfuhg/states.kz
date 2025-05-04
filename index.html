@@ -291,10 +291,14 @@
     <div class="block">
       <h2 id="block3-heading">Почему выбирают нас?</h2>
       <div class="testimonials" id="business-testimonials">
-        <!-- Business testimonials will be inserted here -->
-      </div>
-      <div class="testimonials" id="partner-testimonials">
-        <!-- Partner testimonials will be inserted here -->
+        <div class="testimonial">
+          <p>"За 3 месяца увеличили наши продажи в США на 217%. Операторы действительно с нейтральным акцентом."</p>
+          <div class="testimonial-author">- Директор по экспорту, пищевая компания</div>
+        </div>
+        <div class="testimonial">
+          <p>"Как партнер заработал $8000 за месяц. Все честно - выплатили ровно то, что обещали."</p>
+          <div class="testimonial-author">- Маркетолог, Алматы</div>
+        </div>
       </div>
       <div class="buttons">
         <a class="btn" href="https://wa.me/77003339904" id="btn-contact"><i class="fas fa-envelope"></i> Контакты</a>
@@ -303,6 +307,7 @@
   </div>
   <footer id="footer">© 2025 states.kz | Англоязычный колл-центр для казахстанского бизнеса</footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     // Country-specific content
     const countryContent = {
@@ -547,7 +552,7 @@
           btn: "Серіктес болу"
         },
         block3: {
-          heading: "Клиенттердің пікірлері",
+          heading: "Почему выбирают нас?",
           btn: "Жұмысты бастау"
         },
         footer: "© 2025 states.kz | Қазақстандық бизнес үшін халықаралық шешімдер",
@@ -569,7 +574,7 @@
           btn: "Стать партнером"
         },
         block3: {
-          heading: "Отзывы клиентов",
+          heading: "Почему выбирают нас?",
           btn: "Начать работу"
         },
         footer: "© 2025 states.kz | Международные решения для казахстанского бизнеса",
@@ -591,7 +596,7 @@
           btn: "Become a Partner"
         },
         block3: {
-          heading: "Client Testimonials",
+          heading: "Why Choose Us?",
           btn: "Start Working"
         },
         footer: "© 2025 states.kz | International solutions for Kazakhstani business",
@@ -613,7 +618,7 @@
           btn: "成为合作伙伴"
         },
         block3: {
-          heading: "客户评价",
+          heading: "为什么选择我们?",
           btn: "开始合作"
         },
         footer: "© 2025 states.kz | 哈萨克斯坦企业的国际解决方案",
@@ -635,7 +640,7 @@
           btn: "كن شريكًا"
         },
         block3: {
-          heading: "آراء العملاء",
+          heading: "لماذا تختارنا؟",
           btn: "ابدأ العمل"
         },
         footer: "© 2025 states.kz | حلول دولية للشركات الكازاخستانية",
@@ -657,7 +662,7 @@
           btn: "Ortak Olun"
         },
         block3: {
-          heading: "Müşteri Yorumları",
+          heading: "Neden Bizi Seçmelisiniz?",
           btn: "Çalışmaya Başla"
         },
         footer: "© 2025 states.kz | Kazakistan işletmeleri için uluslararası çözümler",
@@ -683,15 +688,6 @@
       // Update testimonials
       $('#business-testimonials').html(`
         ${country.businessTestimonials.map(testimonial => `
-          <div class="testimonial">
-            <p>${testimonial.text}</p>
-            <div class="testimonial-author">${testimonial.author}</div>
-          </div>
-        `).join('')}
-      `);
-      
-      $('#partner-testimonials').html(`
-        ${country.partnerTestimonials.map(testimonial => `
           <div class="testimonial">
             <p>${testimonial.text}</p>
             <div class="testimonial-author">${testimonial.author}</div>
@@ -756,7 +752,7 @@
 
     // Initialize
     const preferredLang = localStorage.getItem('preferredLang') || 'ru';
-    $('.lang-btn[data-lang="' + preferredLang + '"]').click();
+    document.querySelector(`.lang-btn[data-lang="${preferredLang}"]`).click();
   </script>
 </body>
 </html>
