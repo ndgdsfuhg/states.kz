@@ -1,89 +1,296 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="tr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Колл-центр для США | Казахстан</title>
-  <meta name="description" content="Профессиональный колл-центр для выхода на рынок США">
-  <link rel="stylesheet" href="styles/main.css">
+  <title>ABD Pazarı Satış Hizmetleri | Kazakistan</title>
+  <style>
+    :root {
+      --primary: #2b6cb0;
+      --secondary: #4299e1;
+      --dark: #1a202c;
+      --light: #f7fafc;
+      --gray: #e2e8f0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: var(--primary);
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin: 10px 5px;
+    }
+    .lang-switcher {
+      margin: 20px 0;
+    }
+    .lang-btn {
+      padding: 5px 10px;
+      margin: 0 5px;
+      cursor: pointer;
+      border: 1px solid var(--gray);
+      border-radius: 3px;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Mobile Language Switcher -->
-    <div class="mobile-lang-switcher">
-      <select id="mobile-lang-select" class="lang-select">
-        <option value="ru">RU</option>
-        <option value="kk">ҚАЗ</option>
-        <option value="en">EN</option>
-        <option value="ar">العربية</option>
-        <option value="zh">中文</option>
-        <option value="tr">TR</option>
-      </select>
-    </div>
-
-    <!-- Desktop Language Switcher -->
-    <div class="lang-switcher">
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <button class="lang-btn" data-lang="kk">ҚАЗ</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="ar">العربية</button>
-      <button class="lang-btn" data-lang="zh">中文</button>
-      <button class="lang-btn" data-lang="tr">TR</button>
-    </div>
-
-    <h1 id="main-heading">Англоязычный колл-центр</h1>
-    <p class="tagline" id="main-tagline">Для выхода на рынок США</p>
-
-    <div class="block">
-      <h2 id="block1-heading">Наши услуги</h2>
-      <ul id="block1-list">
-        <li><strong>Полный цикл продаж</strong></li>
-        <li><strong>Носители языка</strong></li>
-        <li><strong>CRM система</strong></li>
-        <li><strong>Прозрачность</strong></li>
-        <li><strong>Под ключ</strong></li>
-      </ul>
-      <div class="buttons">
-        <a class="btn" id="btn-telegram" href="https://t.me/doizv">Telegram</a>
-        <a class="btn" id="btn-whatsapp" href="https://wa.me/77003339904">WhatsApp</a>
-      </div>
-    </div>
-
-    <div class="block">
-      <h2 id="block2-heading">Партнерам</h2>
-      <ul id="block2-list">
-        <li><strong>Высокие комиссии</strong></li>
-        <li><strong>Обучение</strong></li>
-        <li><strong>Материалы</strong></li>
-        <li><strong>Поддержка</strong></li>
-        <li><strong>Бонусы</strong></li>
-      </ul>
-      <div class="buttons">
-        <a class="btn" id="btn-partner" href="https://t.me/+JgoYeT6PCDU0ZmRi">Сотрудничество</a>
-      </div>
-    </div>
-
-    <div class="block">
-      <h2 id="block3-heading">Отзывы</h2>
-      <div class="testimonials">
-        <div class="testimonial">
-          <p id="testimonial1-text">"Отличный сервис!"</p>
-          <div class="testimonial-author" id="testimonial1-author">— Клиент</div>
-        </div>
-        <div class="testimonial">
-          <p id="testimonial2-text">"Быстрый результат"</p>
-          <div class="testimonial-author" id="testimonial2-author">— Партнер</div>
-        </div>
-      </div>
-      <div class="buttons">
-        <a class="btn" id="btn-contact" href="https://wa.me/77003339904">Контакты</a>
-      </div>
-    </div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" data-lang="tr">Türkçe</button>
+    <button class="lang-btn" data-lang="ru">Русский</button>
+    <button class="lang-btn" data-lang="kk">Қазақша</button>
+    <button class="lang-btn" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="ar">العربية</button>
+    <button class="lang-btn" data-lang="zh">中文</button>
   </div>
-  <footer id="footer">© 2025 states.kz</footer>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="scripts/translations.js"></script>
-  <script src="scripts/app.js"></script>
+  <h1 id="main-title">ABD Pazarı Satış Hizmetleri</h1>
+  <p id="main-subtitle">Kazakistan işletmeleri için ABD pazarına girişte tam çözüm</p>
+
+  <h2 id="advantages-title">İhracat Çözümü Avantajları</h2>
+  <ul id="advantages-list">
+    <li><strong>1,200,000₺ tam satış hizmeti</strong> - sonuç odaklı çalışıyoruz</li>
+    <li><strong>Afrikalı operatörler</strong> - mükemmel İngilizce aksanı + %60 tasarruf</li>
+    <li><strong>Otomatik CRM sistemi</strong> - tüm süreçler otomatik yönetilir</li>
+    <li><strong>Tam şeffaflık</strong> - her işlemi gerçek zamanlı görün</li>
+    <li><strong>Anahtar teslim</strong> - personelden ROI raporlarına kadar</li>
+  </ul>
+
+  <div class="buttons">
+    <a href="https://t.me/doizv" class="btn" id="telegram-btn">Telegram'da İletişim</a>
+    <a href="https://wa.me/77003339904" class="btn" id="whatsapp-btn">WhatsApp'ta Soru</a>
+  </div>
+
+  <h2 id="partnership-title">Ortaklık Programı</h2>
+  <ul id="partnership-list">
+    <li><strong>Her müşteri başına $2000</strong> - ödemeler gecikmesiz</li>
+    <li><strong>Yüksek dönüşüm</strong> - %6 başarı oranı ile kanıtlanmış metod</li>
+    <li><strong>+$500 bonus</strong> ilk 3 ortağa</li>
+    <li><strong>Tam destek</strong> - müzakere ve satışları biz yapıyoruz</li>
+    <li><strong>Hazır materyaller</strong> - sunumlar, senaryolar, itiraz yanıtları</li>
+  </ul>
+
+  <div class="buttons">
+    <a href="https://t.me/+JgoYeT6PCDU0ZmRi" class="btn" id="partner-btn">Ortak Olun</a>
+  </div>
+
+  <script>
+    const translations = {
+      'tr': {
+        title: "ABD Pazarı Satış Hizmetleri | Kazakistan",
+        mainTitle: "ABD Pazarı Satış Hizmetleri",
+        mainSubtitle: "Kazakistan işletmeleri için ABD pazarına girişte tam çözüm",
+        advantagesTitle: "İhracat Çözümü Avantajları",
+        advantagesList: [
+          "1,200,000₺ tam satış hizmeti - sonuç odaklı çalışıyoruz",
+          "Afrikalı operatörler - mükemmel İngilizce aksanı + %60 tasarruf",
+          "Otomatik CRM sistemi - tüm süreçler otomatik yönetilir",
+          "Tam şeffaflık - her işlemi gerçek zamanlı görün",
+          "Anahtar teslim - personelden ROI raporlarına kadar"
+        ],
+        partnershipTitle: "Ortaklık Programı",
+        partnershipList: [
+          "Her müşteri başına $2000 - ödemeler gecikmesiz",
+          "Yüksek dönüşüm - %6 başarı oranı ile kanıtlanmış metod",
+          "+$500 bonus ilk 3 ortağa",
+          "Tam destek - müzakere ve satışları biz yapıyoruz",
+          "Hazır materyaller - sunumlar, senaryolar, itiraz yanıtları"
+        ],
+        telegramBtn: "Telegram'da İletişim",
+        whatsappBtn: "WhatsApp'ta Soru",
+        partnerBtn: "Ortak Olun"
+      },
+      'ru': {
+        title: "Продажи на рынок США | Казахстан",
+        mainTitle: "Услуги по продажам в США",
+        mainSubtitle: "Полное решение для казахстанского бизнеса по выходу на рынок США",
+        advantagesTitle: "Преимущества экспортного решения",
+        advantagesList: [
+          "$40,000 полный цикл продаж - работаем на результат",
+          "Африканские операторы - идеальный акцент + экономия 60%",
+          "Автоматизированная CRM система - полный контроль",
+          "Полная прозрачность - видите каждый этап",
+          "Под ключ - от персонала до отчетов о ROI"
+        ],
+        partnershipTitle: "Партнерская программа",
+        partnershipList: [
+          "$2000 за каждого привлеченного клиента - выплаты вовремя",
+          "Высокая конверсия - проверенная методика с 6% успеха",
+          "+$500 бонус первым 3 партнерам",
+          "Полная поддержка - ведем переговоры за вас",
+          "Готовые материалы - презентации, скрипты, ответы"
+        ],
+        telegramBtn: "Связаться в Telegram",
+        whatsappBtn: "Вопрос в WhatsApp",
+        partnerBtn: "Стать партнером"
+      },
+      'kk': {
+        title: "АҚШ нарығына сату қызметі | Қазақстан",
+        mainTitle: "АҚШ нарығына сату қызметі",
+        mainSubtitle: "Қазақстандық бизнес үшін АҚШ нарығына толық шешім",
+        advantagesTitle: "Экспорттық шешім артықшылықтары",
+        advantagesList: [
+          "20,000,000₸ толық сату қызметі - нәтижеге бағытталған",
+          "Африкалық операторлар - тамаша ағылшын тілі + 60% үнемдеу",
+          "Автоматтандырылған CRM - барлық үдерістерді басқару",
+          "Толық ашықтық - әр қадамды көру",
+          "Даяр шешім - қызметкерлерден ROI есептеріне дейін"
+        ],
+        partnershipTitle: "Серіктестік бағдарламасы",
+        partnershipList: [
+          "Әр клиент үшін $2000 - уақытында төлемдер",
+          "Жоғары конверсия - 6% жетістік деңгейімен дәлелденген әдіс",
+          "+$500 бонус алғашқы 3 серіктеске",
+          "Толық қолдау - келіссөздерді біз жүргіземіз",
+          "Дайын материалдар - презентациялар, сценарийлер, жауаптар"
+        ],
+        telegramBtn: "Telegram арқылы байланысу",
+        whatsappBtn: "WhatsApp-те сұрақ",
+        partnerBtn: "Серіктес болу"
+      },
+      'en': {
+        title: "US Market Sales Services | Kazakhstan",
+        mainTitle: "US Market Sales Services",
+        mainSubtitle: "Complete solution for Kazakhstani businesses to enter US market",
+        advantagesTitle: "Export Solution Benefits",
+        advantagesList: [
+          "$40,000 complete sales service - results driven",
+          "African operators - perfect accent + 60% savings",
+          "Automated CRM system - full process control",
+          "Complete transparency - see every step",
+          "Turnkey solution - from staff to ROI reports"
+        ],
+        partnershipTitle: "Partnership Program",
+        partnershipList: [
+          "$2000 per attracted client - timely payments",
+          "High conversion - proven method with 6% success rate",
+          "+$500 bonus for first 3 partners",
+          "Full support - we handle negotiations",
+          "Ready materials - presentations, scripts, answers"
+        ],
+        telegramBtn: "Contact on Telegram",
+        whatsappBtn: "Question on WhatsApp",
+        partnerBtn: "Become a Partner"
+      },
+      'ar': {
+        title: "خدمات مبيعات السوق الأمريكي | كازاخستان",
+        mainTitle: "خدمات مبيعات السوق الأمريكي",
+        mainSubtitle: "حل متكامل للشركات الكازاخستانية لدخول السوق الأمريكي",
+        advantagesTitle: "مزايا حل التصدير",
+        advantagesList: [
+          "150,000 درهم خدمة مبيعات كاملة - تركز على النتائج",
+          "عمال أفارقة - لهجة مثالية + توفير 60٪",
+          "نظام CRM آلي - تحكم كامل في العملية",
+          "شفافية كاملة - رؤية كل خطوة",
+          "حلول جاهزة - من الموظفين إلى تقارير العائد"
+        ],
+        partnershipTitle: "برنامج الشراكة",
+        partnershipList: [
+          "2000 دولار لكل عميل - دفعات في الوقت المحدد",
+          "معدل تحويل عالي - طريقة مثبتة بنجاح 6٪",
+          "مكافأة +500 دولار لأول 3 شركاء",
+          "دعم كامل - نتعامل مع المفاوضات",
+          "مواد جاهزة - عروض تقديمية، نصوص، إجابات"
+        ],
+        telegramBtn: "اتصل على Telegram",
+        whatsappBtn: "سؤال على WhatsApp",
+        partnerBtn: "كن شريكًا"
+      },
+      'zh': {
+        title: "美国市场销售服务 | 哈萨克斯坦",
+        mainTitle: "美国市场销售服务",
+        mainSubtitle: "哈萨克斯坦企业进入美国市场的完整解决方案",
+        advantagesTitle: "出口解决方案优势",
+        advantagesList: [
+          "280,000元完整销售服务 - 结果导向",
+          "非洲运营商 - 完美口音 + 节省60%",
+          "自动化CRM系统 - 全程控制",
+          "完全透明 - 查看每个步骤",
+          "交钥匙解决方案 - 从人员到投资回报报告"
+        ],
+        partnershipTitle: "合作伙伴计划",
+        partnershipList: [
+          "每吸引一位客户2000美元 - 准时付款",
+          "高转化率 - 经过验证的方法，成功率6%",
+          "前3位合作伙伴+500美元奖金",
+          "全面支持 - 我们处理谈判",
+          "现成材料 - 演示文稿、脚本、回答"
+        ],
+        telegramBtn: "通过Telegram联系",
+        whatsappBtn: "WhatsApp咨询",
+        partnerBtn: "成为合作伙伴"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations['en'];
+      
+      // Update metadata
+      document.title = t.title;
+      document.documentElement.lang = lang;
+      
+      // Update content
+      document.getElementById('main-title').textContent = t.mainTitle;
+      document.getElementById('main-subtitle').textContent = t.mainSubtitle;
+      document.getElementById('advantages-title').textContent = t.advantagesTitle;
+      document.getElementById('partnership-title').textContent = t.partnershipTitle;
+      
+      document.getElementById('telegram-btn').textContent = t.telegramBtn;
+      document.getElementById('whatsapp-btn').textContent = t.whatsappBtn;
+      document.getElementById('partner-btn').textContent = t.partnerBtn;
+      
+      // Update lists
+      const advantagesItems = document.querySelectorAll('#advantages-list li');
+      t.advantagesList.forEach((item, index) => {
+        if (advantagesItems[index]) {
+          advantagesItems[index].textContent = item;
+        }
+      });
+      
+      const partnershipItems = document.querySelectorAll('#partnership-list li');
+      t.partnershipList.forEach((item, index) => {
+        if (partnershipItems[index]) {
+          partnershipItems[index].textContent = item;
+        }
+      });
+      
+      // Set RTL for Arabic
+      document.body.style.direction = lang === 'ar' ? 'rtl' : 'ltr';
+    }
+
+    // Language switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        setLanguage(this.dataset.lang);
+        localStorage.setItem('preferredLang', this.dataset.lang);
+      });
+    });
+
+    // Initialize
+    const preferredLang = localStorage.getItem('preferredLang') || 'tr';
+    document.querySelector(`.lang-btn[data-lang="${preferredLang}"]`).click();
+  </script>
 </body>
 </html>
