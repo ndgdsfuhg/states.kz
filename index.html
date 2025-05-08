@@ -1,3 +1,35 @@
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAASoldAqimPCX4qSrk4K7V-fzD9lSgN9tZJknEcKpXZ5xGYsfLlk3kfUeiL_tmbkPj1Wmdz81HthNINms&components=hosted-buttons&disable-funding=venmo&currency=USD">
-</script>
+# Создаём простой HTML-файл с интеграцией Hosted Buttons PayPal для Mini Apps
+
+paypal_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe</title>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAASoldAqimPCX4qSrk4K7V-fzD9lSgN9tZJknEcKpXZ5xGYsfLlk3kfUeiL_tmbkPj1Wmdz81HthNINms&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+</head>
+<body>
+  <h2>Subscribe to Channel</h2>
+  <div id="paypal-container-KP6H5G9NYLKC2"></div>
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "KP6H5G9NYLKC2"
+    }).render("#paypal-container-KP6H5G9NYLKC2");
+  </script>
+</body>
+</html>
+"""
+
+# Сохраняем в ZIP архив для скачивания
+base_path = "/mnt/data/simple_paypal_miniapp"
+os.makedirs(base_path, exist_ok=True)
+html_path = os.path.join(base_path, "index.html")
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(paypal_html)
+
+zip_path = "/mnt/data/simple_paypal_miniapp.zip"
+with zipfile.ZipFile(zip_path, 'w') as zipf:
+    zipf.write(html_path, arcname="index.html")
+
+zip_path
