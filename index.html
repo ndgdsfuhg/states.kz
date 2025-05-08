@@ -1,6 +1,4 @@
-# Создаём простой HTML-файл с интеграцией Hosted Buttons PayPal для Mini Apps
 
-paypal_html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +17,3 @@ paypal_html = """
   </script>
 </body>
 </html>
-"""
-
-# Сохраняем в ZIP архив для скачивания
-base_path = "/mnt/data/simple_paypal_miniapp"
-os.makedirs(base_path, exist_ok=True)
-html_path = os.path.join(base_path, "index.html")
-with open(html_path, "w", encoding="utf-8") as f:
-    f.write(paypal_html)
-
-zip_path = "/mnt/data/simple_paypal_miniapp.zip"
-with zipfile.ZipFile(zip_path, 'w') as zipf:
-    zipf.write(html_path, arcname="index.html")
-
-zip_path
